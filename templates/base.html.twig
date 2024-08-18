@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}Library Management System{% endblock %}</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    {% block stylesheets %}
+    {% endblock %}
+</head>
+<body>
+    <script>
+        // Check if the token is present in local storage
+        if (localStorage.getItem('auth_token')) {
+            document.write(`
+                <nav class="navbar navbar-expand-lg navbar-light bg-light">
+                    <a class="navbar-brand" href="{{ path('home') }}">Library Management System</a>
+                    <div class="collapse navbar-collapse">
+                        <ul class="navbar-nav mr-auto">
+                            <li class="nav-item">
+                                <a class="nav-link" href="{{ path('app_author_index') }}">Authors</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="{{ path('app_book_index') }}">Books</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="{{ path('app_borrower_index') }}">Borrowers</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="{{ path('app_loan_index') }}">Loans</a>
+                            </li>
+                        </ul>
+                        <button id="logoutButton" class="btn btn-danger">Logout</button>
+                    </div>
+                </nav>
+            `);
+        }
+    </script>
+
+    <div class="container mt-4">
+        {% block body %}
+        {% endblock %}
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    {% block javascripts %}
+    {% endblock %}
+
+    <script>
+        // Logout button functionality
+        document.addEventListener('DOMContentLoaded', function () {
+            const logoutButton = document.getElementById('logoutButton');
+            if (logoutButton) {
+                logoutButton.addEventListener('click', function () {
+                    // Clear the token from local storage
+                    localStorage.removeItem('auth_token');
+
+                    // Redirect to the default route
+                    window.location.href = '{{ path('app_logout') }}';
+                });
+            }
+        });
+    </script>
+</body>
+</html>
+

@@ -1,0 +1,74 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Home{% endblock %}
+
+{% block body %}
+    <div class="container mt-5">
+        <div class="text-center mb-5">
+            <h1>Welcome to the Library Management System</h1>
+            <p class="lead">
+                Explore and manage authors, books, borrowers, and loans easily through the sections below.
+            </p>
+        </div>
+
+        <div class="row">
+            <div class="col-md-6 col-lg-3 mb-4">
+                <div class="card">
+                    <div class="card-body">
+                        <h5 class="card-title">
+                            <a href="{{ path('app_author_index') }}" class="text-primary">Authors</a>
+                        </h5>
+                        <p class="card-text">
+                            Manage and view details about authors in the library. Add new authors, update their information, and view the list of all authors.
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-6 col-lg-3 mb-4">
+                <div class="card">
+                    <div class="card-body">
+                        <h5 class="card-title">
+                            <a href="{{ path('app_book_index') }}" class="text-primary">Books</a>
+                        </h5>
+                        <p class="card-text">
+                            Browse and manage books in the library. Add new books, edit existing ones, and view the complete list of available books.
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-6 col-lg-3 mb-4">
+                <div class="card">
+                    <div class="card-body">
+                        <h5 class="card-title">
+                            <a href="{{ path('app_borrower_index') }}" class="text-primary">Borrowers</a>
+                        </h5>
+                        <p class="card-text">
+                            Keep track of library borrowers. Manage borrower information, including adding new borrowers and viewing the list of all borrowers.
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-6 col-lg-3 mb-4">
+                <div class="card">
+                    <div class="card-body">
+                        <h5 class="card-title">
+                            <a href="{{ path('app_loan_index') }}" class="text-primary">Loans</a>
+                        </h5>
+                        <p class="card-text">
+                            Manage and view loan records. Add new loan entries, update existing ones, and track the status of borrowed books.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+        <script>
+
+
+    </script>
+{% endblock %}
+
+
